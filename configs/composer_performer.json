@@ -1,0 +1,57 @@
+{
+  "data": {
+    "sample_rate": 24000,
+    "mel_fps": 50,
+    "midi_fps": 25
+  },
+  "model": {
+    "mel_dim": 128,
+    "clap_dim": 512,
+    "history_patches": 2,
+    "performer_clap_conditioning": true,
+    "composer_rope": {
+      "type": "time_modality_2d",
+      "layout": "interleaved",
+      "midi_time_scale": 0.4,
+      "midi_modality_id": 0,
+      "audio_modality_id": 1,
+      "clap_modality_id": 1
+    },
+    "aggregator": {
+      "mel_dim": 128,
+      "hidden_size": 1024,
+      "depth": 4,
+      "heads": 8,
+      "ff_dim": 4096,
+      "patch_size": 5,
+      "dropout": 0.1
+    },
+    "dit": {
+      "dim": 1024,
+      "depth": 6,
+      "heads": 8,
+      "dim_head": 128,
+      "dropout": 0.1,
+      "ff_mult": 4,
+      "latent_dim": 128,
+      "qk_norm": "rms_norm",
+      "pe_attn_head": null,
+      "checkpoint_activations": false,
+      "enable_conv": true
+    }
+  },
+  "external": {
+    "clap_checkpoint": "checkpoints/clap.pt",
+    "vocos_checkpoint": "checkpoints/vocos.safetensors"
+  },
+  "inference": {
+    "max_release_duration": 3.0,
+    "ode_steps": 4,
+    "schedule": "cosine",
+    "cfg_scale": 1.0,
+    "model_dtype": "bfloat16",
+    "max_prompt_duration": 24.0,
+    "max_target_duration": 24.0,
+    "max_composer_tokens": 4096
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "checkpoint": "checkpoints/refiner.bin",
+  "cutoff_hz": 11025,
+  "transition_bins": 4096,
+  "peak": 0.98
+}

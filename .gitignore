@@ -1,0 +1,13 @@
+# Downloadable model assets, not source-controlled.
+/checkpoints/
+/.cache/
+/.development/
+/outputs/
+/.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+# _outputs/P-MUSE-eval and examples/ intentionally remain tracked.
+CPR.tar.gz
+tests/
+scripts/export_weights.py
