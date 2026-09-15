@@ -21,19 +21,27 @@ On the first CP run, CLAP automatically downloads and caches its RoBERTa initial
 
 ## Checkpoints
 
-Download links will be added to the Google Drive column. Empty cells are
-intentional; this repository does not contain model weights in Git.
+Download the inference assets from [bruceL33/CPR on Hugging Face](https://huggingface.co/bruceL33/CPR).
+Run the following command from the code repository root with the `cpr` Conda environment activated.
 
-| Component | File under `checkpoints/` | Google Drive |
-|---|---|---|
-| Composer–Performer | `composer_performer.safetensors` | |
-| Model architecture and Qwen configuration | `composer_performer_config.json` | |
-| 24 kHz Vocos vocoder | `vocos.safetensors` | |
-| Refiner | `refiner.bin` | |
+Download the four files directly into `checkpoints/`:
 
-Keep the CP configuration sidecar beside its weight file. These are inference
-assets: no optimizer, scheduler, or random-state checkpoint is needed.
-The downloaded model architecture must match the supplied inference config.
+```bash
+hf download bruceL33/CPR \
+  composer_performer.safetensors \
+  composer_performer_config.json \
+  vocos.safetensors \
+  refiner.bin \
+  --local-dir checkpoints
+```
+
+| Component | File under `checkpoints/` |
+|---|---|
+| Composer–Performer | `composer_performer.safetensors` |
+| Model architecture and Qwen configuration | `composer_performer_config.json` |
+| 24 kHz Vocos vocoder | `vocos.safetensors` |
+| Refiner | `refiner.bin` |
+
 
 ### Download CLAP
 
