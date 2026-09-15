@@ -1,0 +1,45 @@
+name: Sync README to Hugging Face
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - README.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-hf-readme
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Check Hugging Face token
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::Add the HF_TOKEN repository secret before running this workflow."
+            exit 1
+          fi
+
+      - name: Install Hugging Face CLI
+        run: python -m pip install "huggingface_hub==1.31.0"
+
+      - name: Upload README
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          hf upload bruceL33/CPR README.md README.md \
+            --repo-type model \
+            --commit-message "Sync README from GitHub"
