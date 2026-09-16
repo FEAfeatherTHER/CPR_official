@@ -1,7 +1,3 @@
-# Copyright (c) 2023 Amphion.
-# Adapted from P-MUSE/Amphion under the MIT license for this project.
-"""The P-MUSE 24 kHz Vocos decoder and checkpoint loader."""
-
 from __future__ import annotations
 
 from pathlib import Path

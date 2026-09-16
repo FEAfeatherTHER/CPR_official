@@ -1,7 +1,6 @@
 # Qwen3 dependency: Copyright 2025 The Qwen team, Alibaba Group and the
 # HuggingFace Inc. team. All rights reserved. Upstream license: Apache-2.0.
 # Source: https://github.com/huggingface/transformers/blob/v4.57.6/src/transformers/models/qwen3/modeling_qwen3.py
-# CPR adds continuous audio/MIDI conditioning and time/modality rotary positions.
 """Qwen3 Composer with interleaved time/modality rotary positions."""
 
 from __future__ import annotations

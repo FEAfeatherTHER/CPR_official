@@ -6,33 +6,30 @@ tags:
   - audio-super-resolution
 ---
 
-# CPR: Composer–Performer and Refiner
+# CPR: COMBINING GLOBAL COMPOSING, LOCAL PERFORMING AND FULL-SEQUENCE REFINING IN PIANO RENDERING WITH CONTINUOUS AUTOREGRESSIVE MODELLING
 
 1. **Composer–Performer (CP)** takes prompt audio, prompt MIDI, and target MIDI,
-   and writes **24 kHz mono audio**. The Composer is an autoregressive Qwen3
-   Transformer; the Performer renders local Mel patches with flow matching.
-   A Vocos vocoder converts the generated Mel features to audio.
+   and renders **24 kHz mono audio**. The Composer is an autoregressive Qwen3
+   Transformer; the Performer renders local Mel spectrograms with flow matching.
+   A Vocos vocoder converts the generated Mel spectrograms to audio.
 2. **Refiner (R)** takes a **24 kHz audio file** and writes **48 kHz mono audio**
    using the LavaSR-based bandwidth-extension model and low-frequency fusion.
 
 ## Installation
 
-Create a dedicated Conda environment with Python 3.10:
+Create a Conda environment with Python 3.10:
 
 ```bash
-conda create -n cpr python=3.10 pip -y
+conda create -n cpr python=3.10
 conda activate cpr
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 On the first CP run, CLAP automatically downloads and caches its RoBERTa initialization resources.
 
 ## Checkpoints
 
-Download the inference assets from [bruceL33/CPR on Hugging Face](https://huggingface.co/bruceL33/CPR).
-Run the following command from the code repository root with the `cpr` Conda environment activated.
-
-Download the four files directly into `checkpoints/`:
+Download the inference assets from [Huggingface](https://huggingface.co/bruceL33/CPR) into `checkpoints/`.
 
 ```bash
 hf download bruceL33/CPR \
@@ -65,9 +62,6 @@ curl --fail --location \
 
 ## Inference
 
-Run commands from the repository root. The included [piano example](examples/piano/README.md)
-contains three inputs: `prompt.wav`, `prompt.mid`, and `target.mid`.
-
 ### 1. Composer–Performer → 24 kHz
 
 ```bash
@@ -76,7 +70,7 @@ bash scripts/infer_cp.sh
 
 ### 2. Refiner → 48 kHz
 
-use any existing 24 kHz WAV:
+use any existing 24 kHz WAV or the output of Composer-Performer:
 
 ```bash
 python infer_refiner.py --input /path/to/audio_24k.wav --output outputs/refined.wav

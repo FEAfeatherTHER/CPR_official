@@ -1,5 +1,3 @@
-"""The single time-alignment rule used by training and inference."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass

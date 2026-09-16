@@ -1,5 +1,3 @@
-"""Euler integration for one current patch."""
-
 from __future__ import annotations
 
 from collections.abc import Callable

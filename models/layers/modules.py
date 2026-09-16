@@ -1,7 +1,3 @@
-# Copyright (c) 2023 Amphion.
-# Adapted from P-MUSE/Amphion under the MIT license for this project.
-"""Minimal DiT layers retained from the P-MUSE implementation."""
-
 from __future__ import annotations
 
 import math

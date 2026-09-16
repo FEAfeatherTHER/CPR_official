@@ -232,7 +232,7 @@ def run_inference(
         vocos.eval().to(torch_device)
         output_audio = vocos(generated_mel.float().transpose(1, 2))[0, 0].float()
         output_audio = peak_normalize(output_audio, 0.98).cpu().numpy()
-    # Exclusive creation prevents a race with another writer after validation.
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("xb") as stream:
         sf.write(stream, output_audio, sample_rate, format="WAV", subtype="PCM_16")

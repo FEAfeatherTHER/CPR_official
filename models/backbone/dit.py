@@ -1,7 +1,3 @@
-# Copyright (c) 2023 Amphion.
-# Adapted from P-MUSE/Amphion under the MIT license for this project.
-"""P-MUSE-style diffusion Transformer."""
-
 from __future__ import annotations
 
 import torch

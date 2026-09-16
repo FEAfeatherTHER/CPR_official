@@ -29,3 +29,4 @@ class PianorollEncoder(nn.Module):
         gate, scale, shift = self.onset_projection(onset).chunk(3, dim=-1)
         velocity = self.velocity_projection(velocity)
         return self.output_projection(velocity + gate * (scale * velocity + shift))
+

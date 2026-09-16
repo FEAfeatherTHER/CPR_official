@@ -1,7 +1,6 @@
 # Adapted from LavaSR by Yatharth Sharma (Apache-2.0; see licenses/Apache-2.0.txt).
 # Source: https://github.com/ysharma3501/LavaSR/tree/33ac040892519c1bb4aed7eb32e79af51cc29e2a
-# Vocos components: Copyright (c) 2023 Charactr Inc. (MIT; license text in LICENSE).
-# CPR changes: SFT configuration, standalone inference, and inverse-STFT handling.
+# Vocos components: Copyright (c) 2023 Charactr Inc. (MIT; license text in licenses/MIT.txt).
 """Standalone (inference-only) LavaSR SFT bandwidth-extension model.
 
 Self-contained: depends ONLY on torch / torchaudio / numpy / librosa (no
