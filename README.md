@@ -29,7 +29,7 @@ On the first CP run, CLAP automatically downloads and caches its RoBERTa initial
 
 ## Checkpoints
 
-Download the inference assets from [Huggingface](https://huggingface.co/bruceL33/CPR) into `checkpoints/`.
+Download the inference assets from [Huggingface](https://huggingface.co/FEAfeatherTHER/CPR) into `checkpoints/`.
 
 ```bash
 hf download bruceL33/CPR \
