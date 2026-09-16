@@ -54,7 +54,6 @@ CLAP is required for Composer–Performer inference. Download the official music
 [music_audioset_epoch_15_esc_90.14.pt](https://huggingface.co/lukewys/laion_clap/blob/main/music_audioset_epoch_15_esc_90.14.pt) and save it as `checkpoints/clap.pt`:
 
 ```bash
-mkdir -p checkpoints
 curl --fail --location \
   --output checkpoints/clap.pt \
   https://huggingface.co/lukewys/laion_clap/resolve/main/music_audioset_epoch_15_esc_90.14.pt
