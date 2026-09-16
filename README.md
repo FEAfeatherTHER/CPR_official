@@ -1,3 +1,11 @@
+---
+tags:
+  - audio
+  - music-generation
+  - midi-to-audio
+  - audio-super-resolution
+---
+
 # CPR: Composer–Performer and Refiner
 
 1. **Composer–Performer (CP)** takes prompt audio, prompt MIDI, and target MIDI,
